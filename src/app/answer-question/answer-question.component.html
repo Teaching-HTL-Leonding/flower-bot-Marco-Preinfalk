@@ -1,0 +1,44 @@
+<h2>Answer Question</h2>
+
+<div class="conversation-container">
+  <div *ngFor="let entry of conversationHistory()">
+    <div
+      class="message"
+      [ngClass]="{
+        'user-message': entry.sender === 'User',
+        'bot-message': entry.sender === 'Bot'
+      }"
+    >
+      <strong>{{ entry.sender }}:</strong>
+      <markdown [data]="entry.message"></markdown>
+    </div>
+  </div>
+</div>
+
+<form (submit)="answerQuestion()">
+  <label for="question">Question</label>
+  <div>
+    <input
+      type="text"
+      id="question"
+      name="question"
+      placeholder="Enter your question here"
+      [(ngModel)]="question"
+      list="suggestions"
+    />
+
+    <datalist id="suggestions">
+      <option value="Are dolphin fish?"></option>
+      <option
+        value="Give me a checklist for a good body-weight training"
+      ></option>
+      <option value="What should I view as a tourist in Vienna?"></option>
+    </datalist>
+
+    <button type="submit">Answer</button>
+  </div>
+</form>
+
+<button type="button" (click)="startOver()">Start Over</button>
+<br>
+<button style="margin-top: 20px;" (click)="nagivateToSystemprompt()">Change SystemPrompt</button>

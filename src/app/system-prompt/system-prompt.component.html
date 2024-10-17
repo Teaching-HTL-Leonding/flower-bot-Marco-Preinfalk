@@ -1,0 +1,20 @@
+<div class="system-prompt-container">
+  <h2>Select System Prompt</h2>
+
+
+
+  <br /><br />
+
+  <textarea
+    [(ngModel)]="systemPrompt"
+    rows="6"
+    cols="50"
+    placeholder="Enter your custom system prompt..."
+  ></textarea>
+  <br />
+  <button (click)="updateCustomPrompt()">Update Prompt</button>
+  <br /><br />
+
+
+  <button (click)="navigateToAnswerQuestion()">Go to Answer Question</button>
+</div>
