@@ -34,9 +34,8 @@ export class SystemPromptComponent {
   }
 
   updateCustomPrompt() {
-    if (!this.isDefaultPrompt) {
-      this.systemPromptService.updatePrompt(this.systemPrompt);
-    }
+    console.log( this.systemPrompt);
+    this.systemPromptService.updatePrompt(this.systemPrompt);
   }
 
   navigateToAnswerQuestion() {
